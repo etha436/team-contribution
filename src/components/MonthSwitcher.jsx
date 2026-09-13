@@ -1,11 +1,11 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { formatMonthKey, shiftMonthKey, currentMonthKey } from '../utils/date'
+import { formatMonthKey, shiftMonthKey } from '../utils/date'
 
 export default function MonthSwitcher({ monthKey, onChange }) {
-  // You can always look further back in history. Going forward stops at
-  // the current real-world month — there's never data beyond "today".
+  // Contributions can be recorded for advance payments too, so both
+  // directions are open — there's no reason to cap navigation at "today".
   const canGoPrev = true
-  const canGoNext = shiftMonthKey(monthKey, 1) <= currentMonthKey()
+  const canGoNext = true
 
   return (
     <div className="month-switcher">

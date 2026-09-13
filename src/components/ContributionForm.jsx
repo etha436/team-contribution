@@ -75,10 +75,10 @@ export default function ContributionForm({ initial, knownPlayers = [], onSubmit,
           id="paymentDate"
           type="date"
           value={paymentDate}
-          max={todayISODate()}
           onChange={(e) => setPaymentDate(e.target.value)}
           className={errors.paymentDate ? 'has-error' : ''}
         />
+        <span className="field__hint">Pick a future date to record an advance payment.</span>
         {errors.paymentDate && <span className="field__error">{errors.paymentDate}</span>}
       </div>
 

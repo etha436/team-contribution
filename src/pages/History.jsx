@@ -52,7 +52,6 @@ export default function History() {
           <EmptyState
             title="No contributions recorded for this month."
             message="Payments recorded with a date in this month will appear here."
-            showAction={monthKey === currentMonthKey()}
           />
         ) : (
           <>
