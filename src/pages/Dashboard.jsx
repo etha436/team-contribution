@@ -53,7 +53,7 @@ export default function Dashboard() {
           )}
         </div>
 
-        <Link to="/add" className="btn btn--primary btn--full btn--lg add-contribution-cta">
+        <Link to="/add" className="btn btn--accent btn--full btn--lg add-contribution-cta">
           <Plus size={20} strokeWidth={2.25} />
           Add contribution
         </Link>

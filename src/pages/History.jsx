@@ -9,7 +9,7 @@ import EmptyState from '../components/EmptyState'
 import Modal from '../components/Modal'
 import ContributionForm from '../components/ContributionForm'
 import { currentMonthKey } from '../utils/date'
-import { filterByMonth, sumAmounts, groupByPlayer, distinctMonthKeys } from '../utils/aggregate'
+import { filterByMonth, sumAmounts, groupByPlayer } from '../utils/aggregate'
 import { formatKsh, initials } from '../utils/currency'
 import { useToast } from '../hooks/useToast'
 
@@ -18,12 +18,6 @@ export default function History() {
   const showToast = useToast()
   const [monthKey, setMonthKey] = useState(currentMonthKey())
   const [editing, setEditing] = useState(null)
-
-  const availableMonths = useMemo(() => {
-    const months = distinctMonthKeys(contributions)
-    if (!months.includes(currentMonthKey())) months.unshift(currentMonthKey())
-    return months.sort().reverse()
-  }, [contributions])
 
   const monthContributions = useMemo(() => filterByMonth(contributions, monthKey), [contributions, monthKey])
   const total = useMemo(() => sumAmounts(monthContributions), [monthContributions])
@@ -46,7 +40,7 @@ export default function History() {
       <AppHeader title="Monthly history" subtitle="Browse past months" />
 
       <div className="page-content">
-        <MonthSwitcher monthKey={monthKey} onChange={setMonthKey} availableMonths={availableMonths} />
+        <MonthSwitcher monthKey={monthKey} onChange={setMonthKey} />
 
         <div className="stat-grid">
           <StatCard label="Total collected" value={formatKsh(total)} tone="blue" icon={Wallet} />

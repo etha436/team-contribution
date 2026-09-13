@@ -12,8 +12,9 @@ export default function BottomNav() {
         <Users size={22} strokeWidth={2} />
         <span>Players</span>
       </NavLink>
-      <NavLink to="/add" className="bottom-nav__add" aria-label="Add contribution">
-        <Plus size={26} strokeWidth={2.5} />
+      <NavLink to="/add" className="bottom-nav__item bottom-nav__item--accent">
+        <Plus size={22} strokeWidth={2.25} />
+        <span>Add</span>
       </NavLink>
       <NavLink to="/history" className="bottom-nav__item">
         <History size={22} strokeWidth={2} />
